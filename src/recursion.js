@@ -41,12 +41,10 @@ var sum = function(array) {
 var arraySum = function(array) {
   //inititialize a sum variable
   var sum = 0;
-
   //base case which returns the current value to the previous call
   if (!Array.isArray(array)) {
     return array;
   }
-
   //recursive case
   array.forEach(function(item) {
     sum += arraySum(item);
@@ -70,6 +68,19 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  //initialize a sum variable
+  var sum = 0;
+  //base case
+  if (n === 0) {
+    return 0;
+  }
+  //recursive case
+  if (n > 0) {
+    sum += ((n - 1) + sumBelow(n - 1));
+  } else {
+    sum += ((n + 1) + sumBelow(n + 1));
+  }
+  return sum;
 };
 
 // 6. Get the integers within a range (x, y).
